@@ -35,6 +35,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "brown.h"
 
@@ -97,7 +98,13 @@ init_brown()
 void
 clear_board()
 {
+  struct timespec tm;
+  
   memset(board, 0, sizeof(board));
+
+  /* Re-seed rand() when clearing board */
+  clock_gettime(CLOCK_REALTIME, &tm);
+  srand((unsigned) tm.tv_nsec);
 }
 
 int
