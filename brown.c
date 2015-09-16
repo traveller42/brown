@@ -39,6 +39,9 @@
 
 #include "brown.h"
 
+/* Flag to indicate if a seed was set on the command line */
+int manual_seed = 0;
+
 /* The GTP specification leaves the initial board size and komi to the
  * discretion of the engine. We make the uncommon choices of 6x6 board
  * and komi -3.14.
@@ -103,8 +106,11 @@ clear_board()
   memset(board, 0, sizeof(board));
 
   /* Re-seed rand() when clearing board */
-  clock_gettime(CLOCK_REALTIME, &tm);
-  srand((unsigned) tm.tv_nsec);
+  if (manual_seed == 0) 
+  {
+    clock_gettime(CLOCK_REALTIME, &tm);
+    srand((unsigned) tm.tv_nsec);
+  }
 }
 
 int

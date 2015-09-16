@@ -52,6 +52,7 @@
 
 extern float komi;
 extern int board_size;
+extern int manual_seed;
 
 void init_brown(void);
 void clear_board(void);

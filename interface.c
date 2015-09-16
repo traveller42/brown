@@ -84,10 +84,14 @@ int
 main(int argc, char **argv)
 {
   unsigned int random_seed = 1;
+  manual_seed = 0;
 
   /* Optionally a random seed can be passed as an argument to the program. */
   if (argc > 1)
+  {
     sscanf(argv[1], "%u", &random_seed);
+    manual_seed = 1;
+  }
   srand(random_seed);
   
   /* Make sure that stdout is not block buffered. */
