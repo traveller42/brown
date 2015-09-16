@@ -32,7 +32,7 @@
  * without prior written authorization of the copyright holder.  *
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define VERSION_STRING "1.1"
+#define VERSION_STRING "1.1.1"
 
 #define MIN_BOARD 2
 #define MAX_BOARD 23
